@@ -24,7 +24,7 @@ class WeatherController extends Controller
     {
         $weather = $this->weatherService->getWeather($name);
         if($weather instanceof Exception){
-            return view('error', ['exception' => $weather]);
+            return view('welcome', ['exception' => $weather]);
         }else{
             return view('welcome', array(
                 'weather' => $weather
@@ -36,7 +36,7 @@ class WeatherController extends Controller
     {
         $weatherName = $this->weatherService->getWeatherByCoordinates($lat, $lon);
         if($weatherName instanceof Exception){
-            return view('error', array(
+            return view('welcome', array(
                 'exception' => $weatherName
             ));
         }else{

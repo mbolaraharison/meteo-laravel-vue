@@ -72,7 +72,12 @@
         <div id="app">
             <div class="container">
                 <navbar></navbar>
-                <index v-bind:vars="{{ json_encode($weather) }}"></index>
+                @isset($weather)
+                    <index v-bind:vars="{{ json_encode($weather) }}"></index>
+                @endisset
+                @isset($exception)
+                    <error v-bind:excepts="{{ json_encode(['code' => $exception->getCode(), 'message' => $exception->getMessage()]) }}"></error>
+                @endisset
                 <myfooter></myfooter>
             </div>
         </div>

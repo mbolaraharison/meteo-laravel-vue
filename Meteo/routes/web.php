@@ -21,6 +21,4 @@ Route::get('/home', function () {
     return view('weather.index');
 });
 
-Route::get('/error', 'WeatherController@index');
-
 Route::get('/{lat}/{lon}', 'WeatherController@getByCoordinates');
